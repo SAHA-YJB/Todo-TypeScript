@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./App.css";
 import TodoTemplate from "./components/TodoTemplate/TodoTemplate";
 import TodoInsert from "./components/TodoInsert/TodoInsert";
@@ -11,22 +11,25 @@ export interface Todo {
 }
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      id: 1,
-      text: "Hello",
-      checked: true,
+  const nextId = useRef(1);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const addTodo = useCallback(
+    (text: string) => {
+      const newTodo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos([newTodo, ...todos]);
+      nextId.current += 1;
     },
-    {
-      id: 2,
-      text: "Hello",
-      checked: false,
-    },
-  ]);
+    [todos]
+  );
 
   return (
     <TodoTemplate>
-      <TodoInsert />
+      <TodoInsert addTodo={addTodo} />
       <TodoList todos={todos} />
     </TodoTemplate>
   );
