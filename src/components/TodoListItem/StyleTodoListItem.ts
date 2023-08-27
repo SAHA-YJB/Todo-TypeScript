@@ -4,7 +4,9 @@ export const TodoListItemSection = styled.section`
   padding: 1rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
   &:nth-child(even){
     background: #f8f9fa;
   }

@@ -17,6 +17,11 @@ function App() {
       text: "Hello",
       checked: true,
     },
+    {
+      id: 2,
+      text: "Hello",
+      checked: false,
+    },
   ]);
 
   return (
