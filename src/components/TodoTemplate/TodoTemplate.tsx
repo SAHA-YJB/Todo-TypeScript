@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoTemplateSection } from "./TodoTemplateStyle";
+import { TodoTemplateSection } from "./StyleTodoTemplate";
 
 interface TodoTemplateProps {
   children: React.ReactNode;

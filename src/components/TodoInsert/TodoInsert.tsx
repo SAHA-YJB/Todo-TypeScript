@@ -1,6 +1,6 @@
 import React from "react";
 import { MdAdd } from "react-icons/md";
-import { TodoInsertForm } from "./TodoInsertStyle";
+import { TodoInsertForm } from "./StyleTodoInsert";
 
 const TodoInsert = () => {
   return (

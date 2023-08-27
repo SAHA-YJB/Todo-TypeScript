@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const TodoInsertForm = styled.form`
   display: flex;
   background: #fff;
+  border-bottom: 2px solid;
   input {
     background: #fff;
     outline: none;
@@ -19,7 +20,7 @@ export const TodoInsertForm = styled.form`
   button {
     background: #000;
     outline: none;
-    border: none;
+    border-left: 2px solid #FFF;
     padding: 0 1rem;
     font-size:1.5rem;
     display: flex;
