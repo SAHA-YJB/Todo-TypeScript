@@ -1,13 +1,14 @@
 import React from "react";
 import TodoListItem from "../TodoListItem/TodoListItem";
 import { TodoListSection } from "./StyleTodoList";
+import { Todo } from "../../App";
 
-const TodoList = () => {
+const TodoList = ({ todos }: { todos: Todo[] }) => {
   return (
     <TodoListSection>
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map((todo) => (
+        <TodoListItem todo={todo} key={todo.id} />
+      ))}
     </TodoListSection>
   );
 };

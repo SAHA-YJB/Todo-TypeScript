@@ -9,13 +9,20 @@ import {
   RemoveIcon,
   TodoListItemSection,
 } from "./StyleTodoListItem";
+import { Todo } from "../../App";
 
-const TodoListItem = () => {
+interface TodoListItemProps {
+  todo: Todo;
+}
+
+const TodoListItem = ({ todo }: TodoListItemProps) => {
+  const { text, checked } = todo;
+
   return (
     <TodoListItemSection>
       <CheckBoxContainer>
-        <MdCheckBoxOutlineBlank />
-        <div className="text">할 일</div>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
       </CheckBoxContainer>
       <RemoveIcon>
         <MdRemoveCircleOutline />
