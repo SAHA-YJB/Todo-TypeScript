@@ -42,3 +42,10 @@ export const RemoveIcon = styled.div`
     color: #ff8787;
   }
 `
+export const TodoListUpdateText = styled.input`
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  width: 100%;
+  font-weight: 200;
+`

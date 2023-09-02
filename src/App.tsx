@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import "./App.css";
 import TodoTemplate from "./components/TodoTemplate/TodoTemplate";
 import TodoInsert from "./components/TodoInsert/TodoInsert";
@@ -44,10 +44,24 @@ function App() {
     },
     [todos]
   );
+
+  const updateTodo = useCallback(
+    (id: number, text: string) => {
+      setTodos(
+        todos.map((todo) => (todo.id === id ? { ...todo, text: text } : todo))
+      );
+    },
+    [todos]
+  );
   return (
     <TodoTemplate>
       <TodoInsert addTodo={addTodo} />
-      <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
+      <TodoList
+        todos={todos}
+        removeTodo={removeTodo}
+        toggleTodo={toggleTodo}
+        updateTodo={updateTodo}
+      />
     </TodoTemplate>
   );
 }
