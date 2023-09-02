@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { TodoInsertForm } from "./StyleTodoInsert";
 
-interface TodoInsertProps {
+export interface TodoInsertProps {
   addTodo: (text: string) => void;
 }
 

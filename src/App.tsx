@@ -27,10 +27,27 @@ function App() {
     [todos]
   );
 
+  const removeTodo = useCallback(
+    (id: number) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
+  const toggleTodo = useCallback(
+    (id: number) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        )
+      );
+    },
+    [todos]
+  );
   return (
     <TodoTemplate>
       <TodoInsert addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </TodoTemplate>
   );
 }

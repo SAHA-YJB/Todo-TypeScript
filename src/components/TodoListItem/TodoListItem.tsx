@@ -11,20 +11,22 @@ import {
 } from "./StyleTodoListItem";
 import { Todo } from "../../App";
 
-interface TodoListItemProps {
+export interface TodoListItemProps {
   todo: Todo;
+  removeTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
 }
 
-const TodoListItem = ({ todo }: TodoListItemProps) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, removeTodo, toggleTodo }: TodoListItemProps) => {
+  const { id, text, checked } = todo;
 
   return (
     <TodoListItemSection>
-      <CheckBoxContainer>
+      <CheckBoxContainer onClick={() => toggleTodo(id)}>
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <div className="text">{text}</div>
       </CheckBoxContainer>
-      <RemoveIcon>
+      <RemoveIcon onClick={() => removeTodo(id)}>
         <MdRemoveCircleOutline />
       </RemoveIcon>
     </TodoListItemSection>
