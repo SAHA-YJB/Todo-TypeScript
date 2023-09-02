@@ -1,8 +1,11 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import TodoTemplate from "./components/TodoTemplate/TodoTemplate";
 import TodoInsert from "./components/TodoInsert/TodoInsert";
 import TodoList from "./components/TodoList/TodoList";
+import { useRecoilState } from "recoil";
+import { darkModeState } from "./recoil/todo/atoms";
+import { FiSun } from "react-icons/fi";
 
 export interface Todo {
   id: number;
@@ -13,6 +16,16 @@ export interface Todo {
 function App() {
   const nextId = useRef(1);
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeState);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+    document.body.classList.toggle("dark-mode", isDarkMode);
+  }, [isDarkMode]);
 
   const addTodo = useCallback(
     (text: string) => {
@@ -54,15 +67,19 @@ function App() {
     [todos]
   );
   return (
-    <TodoTemplate>
-      <TodoInsert addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        removeTodo={removeTodo}
-        toggleTodo={toggleTodo}
-        updateTodo={updateTodo}
-      />
-    </TodoTemplate>
+    <>
+      <div className={isDarkMode ? "dark-mode" : ""}>
+        <TodoTemplate toggleDarkMode={toggleDarkMode}>
+          <TodoInsert addTodo={addTodo} />
+          <TodoList
+            todos={todos}
+            removeTodo={removeTodo}
+            toggleTodo={toggleTodo}
+            updateTodo={updateTodo}
+          />
+        </TodoTemplate>
+      </div>
+    </>
   );
 }
 

@@ -6,6 +6,23 @@ export const TodoTemplateSection = styled.header`
   margin: 6rem auto 0 auto;
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
+  .sun-icon {
+    position: absolute;
+    top: 24px;
+    right: 6px;
+    padding: 1rem;
+    scale: 1.5;
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+      scale: 2;
+      color: yellow;
+    }
+    @media (max-width: 320px) {
+      font-size: 1.5rem;
+    }
+  }
   h1 {
     background: #000;
     color: #fff;
