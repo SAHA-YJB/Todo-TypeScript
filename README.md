@@ -2,4 +2,4 @@
 
 Basic Todo - TypeScript
 
-react / styled-components / TypeScript
+React / styled-components / TypeScript
