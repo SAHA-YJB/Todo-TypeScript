@@ -4,8 +4,7 @@ import TodoTemplate from "./components/TodoTemplate/TodoTemplate";
 import TodoInsert from "./components/TodoInsert/TodoInsert";
 import TodoList from "./components/TodoList/TodoList";
 import { useRecoilState } from "recoil";
-import { darkModeState } from "./recoil/todo/atoms";
-import { FiSun } from "react-icons/fi";
+import { darkModeState } from "./recoil/darkmode/atoms";
 
 export interface Todo {
   id: number;

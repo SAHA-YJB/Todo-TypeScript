@@ -1,6 +1,12 @@
 import { atom } from 'recoil';
 
-export const darkModeState = atom<boolean>({
-  key: 'darkModeState',
-  default: JSON.parse(localStorage.getItem('darkMode') || 'false'),
+export interface Todo {
+  id: number;
+  text: string;
+  checked: boolean;
+}
+
+export const todosState = atom<Todo[]>({
+  key: 'todosState',
+  default: [],
 });
