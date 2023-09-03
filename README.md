@@ -2,4 +2,7 @@
 
 Basic Todo - TypeScript
 
-React / styled-components / TypeScript / Recoil(Dark-Mode)
+React / 
+styled-components(style) / 
+TypeScript(Todo-type) (func-type) / 
+Recoil(Dark-Mode)(Todo-state)
