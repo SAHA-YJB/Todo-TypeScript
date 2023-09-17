@@ -1,6 +1,7 @@
 import TodoListItem from "../TodoListItem/TodoListItem";
 import { TodoListSection } from "./StyleTodoList";
 import { Todo } from "../../App";
+import React from "react";
 
 export interface TodoListProps {
   todos: Todo[];
@@ -30,4 +31,4 @@ const TodoList = ({
   );
 };
 
-export default TodoList;
+export default React.memo(TodoList);
